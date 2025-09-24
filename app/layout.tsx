@@ -2,6 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
 
+const baseUrl = process.env.NODE_ENV === "production" ? "https://revais.fr" : "http://localhost:3000"
+
 export const metadata: Metadata = {
   title: "REVAIS MONTAGE - Artisan de proximité | Pose parquet, terrasses, montage meubles | Auvergne Rhône-Alpes",
   description:
@@ -23,29 +25,27 @@ export const metadata: Metadata = {
     "intervention rapide",
     "travaux de finition",
     "aménagement intérieur",
-    "aménagement extérieur"
+    "aménagement extérieur",
   ].join(", "),
   authors: [{ name: "REVAIS MONTAGE" }],
   creator: "REVAIS MONTAGE",
   publisher: "REVAIS MONTAGE",
   robots: "index, follow",
-  verification: {
-    google: "votre-code-google-search-console", // À remplacer par votre code
-  },
   icons: {
     icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png" }],
     apple: "/apple-icon.png",
   },
   openGraph: {
     title: "REVAIS MONTAGE - Artisan de proximité | Pose parquet & terrasses",
-    description: "Artisan qualifié en Auvergne Rhône-Alpes. Pose de parquet, terrasses bois/composite, montage meubles, installation cuisines. Devis gratuit !",
-    url: "https://revais.fr",
+    description:
+      "Artisan qualifié en Auvergne Rhône-Alpes. Pose de parquet, terrasses bois/composite, montage meubles, installation cuisines. Devis gratuit !",
+    url: baseUrl,
     siteName: "REVAIS MONTAGE",
     locale: "fr_FR",
     type: "website",
     images: [
       {
-        url: "/logo-updated.jpg",
+        url: `${baseUrl}/logo-updated.jpg`,
         width: 1200,
         height: 630,
         alt: "REVAIS MONTAGE - Artisan de proximité",
@@ -56,10 +56,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "REVAIS MONTAGE - Artisan de proximité",
     description: "Pose parquet, terrasses, montage meubles en Auvergne Rhône-Alpes. Devis gratuit !",
-    images: ["/logo-updated.jpg"],
+    images: [`${baseUrl}/logo-updated.jpg`],
   },
   alternates: {
-    canonical: "https://revais.fr",
+    canonical: baseUrl,
   },
 }
 
@@ -83,40 +83,38 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "REVAIS MONTAGE",
-              "description": "Artisan spécialisé en pose de parquet, terrasses bois et composite, montage de meubles et installation de cuisines",
-              "url": "https://revais.fr",
-              "telephone": "06.47.50.03.77",
-              "email": "contact@revais.fr",
-              "address": {
+              name: "REVAIS MONTAGE",
+              description:
+                "Artisan spécialisé en pose de parquet, terrasses bois et composite, montage de meubles et installation de cuisines",
+              url: baseUrl,
+              telephone: "06.47.50.03.77",
+              email: "contact@revais.fr",
+              address: {
                 "@type": "PostalAddress",
-                "addressRegion": "Auvergne-Rhône-Alpes",
-                "addressCountry": "FR"
+                addressRegion: "Auvergne-Rhône-Alpes",
+                addressCountry: "FR",
               },
-              "geo": {
+              geo: {
                 "@type": "GeoCoordinates",
-                "latitude": "45.7640",
-                "longitude": "4.8357"
+                latitude: "45.7640",
+                longitude: "4.8357",
               },
-              "openingHours": [
-                "Mo-Fr 08:00-18:00",
-                "Sa 08:00-12:00"
-              ],
-              "serviceArea": {
+              openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-12:00"],
+              serviceArea: {
                 "@type": "State",
-                "name": "Auvergne-Rhône-Alpes"
+                name: "Auvergne-Rhône-Alpes",
               },
-              "services": [
+              services: [
                 "Pose de parquet",
-                "Terrasses bois et composite", 
+                "Terrasses bois et composite",
                 "Montage de meubles",
                 "Installation de cuisines",
                 "Aménagement intérieur",
-                "Aménagement extérieur"
+                "Aménagement extérieur",
               ],
-              "priceRange": "€€",
-              "image": "https://revais.fr/logo-updated.jpg"
-            })
+              priceRange: "€€",
+              image: `${baseUrl}/logo-updated.jpg`,
+            }),
           }}
         />
       </head>

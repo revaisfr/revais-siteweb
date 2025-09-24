@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://revais.fr"
+  const baseUrl = process.env.NODE_ENV === "production" ? "https://revais.fr" : "http://localhost:3000"
 
   return [
     {
