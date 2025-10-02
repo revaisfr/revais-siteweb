@@ -186,7 +186,7 @@ export default function HomePage() {
             </div>
             <div className="relative flex justify-center">
               <Image
-                src="/logo-updated.jpg"
+                src="/logo.png"
                 alt="REVAIS MONTAGE - Artisan de proximité Auvergne Rhône-Alpes"
                 width={600}
                 height={600}
