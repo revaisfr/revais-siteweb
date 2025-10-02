@@ -3,4 +3,20 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 10
+
+# Sitemap
 Sitemap: https://revais.fr/sitemap.xml
+
+# Spécifique pour Google
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Crawl-delay: 5
+
+# Optimisation pour Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Crawl-delay: 10
